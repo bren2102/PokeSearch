@@ -1,6 +1,7 @@
 import React from 'react';
 import { BrowserRouter as Router, Route, Switch, Link } from "react-router-dom";
 import Pokedex from "../containers/pokedex";
+import PokeDetails from "../components/pokeDetail"
 import Main from "./main";
 
 class App extends React.Component {
@@ -36,6 +37,9 @@ class App extends React.Component {
             </Route>
             <Route exact path="/generation/7">
               <Pokedex generation={'pokemon?limit=86&offset=721'} />
+            </Route>
+            <Route exact path="/pokemon/:name">
+              <PokeDetails />
             </Route>
             <Route exact path="/">
               <Main />

@@ -15,7 +15,6 @@ class Pokedex extends React.Component {
 
   componentDidMount() {
     const { generation } = this.props;
-    console.log(generation)
     axios.get(this.state.url + generation)
     .then((data) => {
         this.setState({
@@ -33,7 +32,7 @@ class Pokedex extends React.Component {
             {this.state.pokemon.map(pokemon => (
               <Pokemon 
                 name={pokemon.name}
-                index={pokemon.name}
+                key={pokemon.name}
                 url={pokemon.url} />
             ))}
           </div>

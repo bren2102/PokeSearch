@@ -1,6 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-
+import { withRouter } from "react-router-dom";
+import { Link } from 'react-router-dom';
 
 class Pokemon extends React.Component {
   state = {
@@ -26,19 +27,21 @@ class Pokemon extends React.Component {
  
   render(){
     return(
-      <div id="pokemon-card">
-        <div id="159pokemon-tile">
-          <h2>#{this.state.index}</h2>
+      <Link to={`/pokemon/${this.state.name}`} id="link-pokemon">
+        <div id="pokemon-card">
+          <div id="pokemon-title">
+            <h2>#{this.state.index}</h2>
+          </div>
+          <div id="pokemon-body">
+            <img src={this.state.imageUrl} alt=""></img>
+            <h3>{this.state.name
+              .toLowerCase()
+              .split(' ')
+              .map(s => s.charAt(0).toUpperCase() + s.substring(1))
+              .join(' ')}</h3>
+          </div>
         </div>
-        <div id="pokemon-body">
-          <img src={this.state.imageUrl} alt=""></img>
-          <h3>{this.state.name
-            .toLowerCase()
-            .split(' ')
-            .map(s => s.charAt(0).toUpperCase() + s.substring(1))
-            .join(' ')}</h3>
-        </div>
-      </div>
+      </Link>
     );
   }
 }
@@ -57,4 +60,4 @@ Pokemon.defaultProps = {
   generation: null,
 };
 
-export default Pokemon;
+export default withRouter(Pokemon);
