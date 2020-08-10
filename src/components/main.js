@@ -8,7 +8,7 @@ class Main extends React.Component {
     return(
       <div>
         <Router>
-          <div id="container">
+          <div id="generations">
             <div>
               <Link to="/generation-i">Generation I</Link>
               <Link to="/generation-ii">Generation II</Link>
