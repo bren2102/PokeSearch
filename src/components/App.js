@@ -1,14 +1,15 @@
 import React from 'react';
+import Main from "./main";
 
 class App extends React.Component {
+
   render(){
     return(
       <div id="app">
-        <h1>Pokedex</h1>
-        <div id="generations">
-          <h1>Generations</h1>
-          <span>Use search for generations to explore your pokemon!</span>
-        </div>
+        <header>
+          <h1>Pokedex</h1>
+        </header>
+        <Main />
       </div>
     )
   }
