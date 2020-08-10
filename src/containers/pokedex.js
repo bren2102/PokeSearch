@@ -1,20 +1,28 @@
 import React, { useState } from 'react';
 import { connect } from 'react-redux';
 import axios from 'axios';
+import { withRouter } from "react-router-dom";
 import PropTypes from 'prop-types';
 import Pokemon from '../components/pokemon';
 
 class Pokedex extends React.Component {
   state = {
-    url: 'https://pokeapi.co/api/v2/pokemon?limit=151',
+    url: 'https://pokeapi.co/api/v2/',
     generation: null,
     id:null,
     pokemon: null
   }
 
-  async componentDidMount() {
-    const result = await axios.get(this.state.url);
-    this.setState({ pokemon:result.data['results'] });
+  componentDidMount() {
+    const { generation } = this.props;
+    console.log(generation)
+    axios.get(this.state.url + generation)
+    .then((data) => {
+        this.setState({
+        pokemon: data.data['results'],
+        generation
+      });
+    });
   }
 
   render(){
@@ -37,4 +45,4 @@ class Pokedex extends React.Component {
   }
 };
 
-export default Pokedex;
+export default withRouter(Pokedex);
