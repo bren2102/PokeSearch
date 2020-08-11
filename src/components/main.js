@@ -1,9 +1,14 @@
 import React from "react";
-import Pokedex from "../containers/pokedex"
-import App from "./App";
+import { boolHome } from '../actions/index';
 import { BrowserRouter as Router, Route, Switch, Link } from "react-router-dom";
+import { connect } from "react-redux";
 
 class Main extends React.Component {
+  constructor(props){
+    super(props);
+    const { setBoolHome } =  props;
+    setBoolHome(true);
+  }
   render() {
     return(
         <div id="generations">
@@ -68,4 +73,8 @@ class Main extends React.Component {
   } 
 }
 
-export default Main;
+const mapDispatchToProps = dispatch => ({
+  setBoolHome: bool => dispatch(boolHome(bool))
+})
+
+export default connect(null,mapDispatchToProps)(Main);

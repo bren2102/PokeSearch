@@ -8,9 +8,10 @@ const InputFilter = (props) => {
     filterPokemon(e.target.value);
   }
 
+  const { bool } = props;
   return(
     <React.StrictMode>
-      <input id="searchBar" type="text" onChange={handleFilterChange} placeholder="What pokemon are you looking for"></input>
+      <input id="searchBar" type="text" style={{display: (bool=== true ? 'none' : 'block' )}} onChange={handleFilterChange} placeholder="What pokemon are you looking for"></input>
     </React.StrictMode>
   )
 }
@@ -19,4 +20,8 @@ const mapDispatchToProps = dispatch => ({
   filterPokemon: query => dispatch(filterPokemon(query))
 })
 
-export default connect(null, mapDispatchToProps)(InputFilter);
+const mapStateToProps = state => ({
+  bool: state.isInHome
+})
+
+export default connect(mapStateToProps, mapDispatchToProps)(InputFilter);

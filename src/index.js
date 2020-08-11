@@ -17,6 +17,7 @@ const store = createStore(rootReducer,
   {
     pokemones: [],
     queryFilter: '',
+    isInHome: false
   });
 
 ReactDOM.render(

@@ -1,11 +1,17 @@
-import React, { useState } from 'react';
+import React from 'react';
 import { connect } from 'react-redux';
 import axios from 'axios';
-import { withRouter } from "react-router-dom";
 import PropTypes from 'prop-types';
 import Pokemon from '../components/pokemon';
+import { boolHome } from '../actions/index';
 
 class Pokedex extends React.Component {
+  constructor(props){
+    super(props);
+    const { setBoolHome } = props;
+    setBoolHome(false);
+  }
+  
   state = {
     url: 'https://pokeapi.co/api/v2/',
     generation: null,
@@ -50,4 +56,8 @@ const mapStateToProps = state => ({
   query: state.queryFilter,
 });
 
-export default connect(mapStateToProps)(Pokedex);
+const mapDispatchToProps = dispatch => ({
+  setBoolHome: bool => dispatch(boolHome(bool))
+})
+
+export default connect(mapStateToProps, mapDispatchToProps)(Pokedex);

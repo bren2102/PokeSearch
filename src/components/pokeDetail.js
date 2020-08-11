@@ -15,9 +15,10 @@ class PokeDetails extends React.Component {
     let pokemonUrl = `https://pokeapi.co/api/v2/pokemon/${name}`;
     axios.get(pokemonUrl)
     .then((data) => {
+      console.log((data.data.id).toString.length)
         this.setState({
         name: data.data.name,
-        id: data.data.order
+        index: ((data.data.id).toString.length === 3) ? data.data.id : (('0').repeat(3 - (data.data.id).toString.length) + data.data.id)
       });
     });
     
@@ -27,7 +28,7 @@ class PokeDetails extends React.Component {
     return(
       <div id="pokemon-details">
         <div id="top-name">
-          <p>{this.state.id}</p>
+          <p>{this.state.index}</p>
           <p>
             {this.state.name
             .toLowerCase()
