@@ -14,8 +14,8 @@ class App extends React.Component {
           <header>
             <Link to='/'>
               <h1>Pokedex</h1>
-              <InputFilter />
             </Link>
+            <InputFilter />
           </header>
           <Switch>
             <Route exact path="/generation/1">

@@ -1,13 +1,14 @@
 import React from "react";
-import { boolHome } from '../actions/index';
+import { boolHome, cleanInput } from '../actions/index';
 import { BrowserRouter as Router, Route, Switch, Link } from "react-router-dom";
 import { connect } from "react-redux";
 
 class Main extends React.Component {
   constructor(props){
     super(props);
-    const { setBoolHome } =  props;
+    const { setBoolHome, clearInput } =  props;
     setBoolHome(true);
+    clearInput();
   }
   render() {
     return(
@@ -74,7 +75,8 @@ class Main extends React.Component {
 }
 
 const mapDispatchToProps = dispatch => ({
-  setBoolHome: bool => dispatch(boolHome(bool))
+  setBoolHome: bool => dispatch(boolHome(bool)),
+  clearInput: () => dispatch(cleanInput())
 })
 
 export default connect(null,mapDispatchToProps)(Main);

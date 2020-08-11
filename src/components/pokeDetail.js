@@ -1,9 +1,17 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import { connect } from 'react-redux';
 import { withRouter } from "react-router-dom";
 import axios from 'axios';
+import { boolHome, cleanInput } from '../actions/index';
 
 class PokeDetails extends React.Component {
+  constructor(props){
+    super(props);
+    const { setBool, clearInput } = props;
+    setBool(true);
+    clearInput();
+  }
   state = {
     index: '',
     name: '',
@@ -21,7 +29,6 @@ class PokeDetails extends React.Component {
         index: ((data.data.id).toString.length === 3) ? data.data.id : (('0').repeat(3 - (data.data.id).toString.length) + data.data.id)
       });
     });
-    
   }
 
   render(){
@@ -40,7 +47,11 @@ class PokeDetails extends React.Component {
       </div>
     );
   }
-
 }
 
-export default withRouter(PokeDetails);
+const mapDispatchToProps = dispatch => ({
+  setBool: bool => dispatch(boolHome(bool)),
+  clearInput: () => dispatch(cleanInput())
+});
+
+export default connect(null, mapDispatchToProps)(withRouter(PokeDetails));

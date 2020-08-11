@@ -1,5 +1,5 @@
 import React from 'react';
-import {filterPokemon} from '../actions/index';
+import { filterPokemon } from '../actions/index';
 import { connect } from 'react-redux';
 
 const InputFilter = (props) => {
@@ -8,20 +8,22 @@ const InputFilter = (props) => {
     filterPokemon(e.target.value);
   }
 
-  const { bool } = props;
+  const { bool, queryFilter } = props;
+
   return(
     <React.StrictMode>
-      <input id="searchBar" type="text" style={{display: (bool=== true ? 'none' : 'block' )}} onChange={handleFilterChange} placeholder="What pokemon are you looking for"></input>
+      <input id="searchBar" type="text" style={{display: (bool=== true ? 'none' : 'block' )}} value={queryFilter} onChange={handleFilterChange} placeholder="What pokemon are you looking for"></input>
     </React.StrictMode>
   )
 }
 
 const mapDispatchToProps = dispatch => ({
-  filterPokemon: query => dispatch(filterPokemon(query))
+  filterPokemon: query => dispatch(filterPokemon(query)),
 })
 
 const mapStateToProps = state => ({
-  bool: state.isInHome
+  bool: state.isInHome,
+  queryFilter: state.queryFilter
 })
 
 export default connect(mapStateToProps, mapDispatchToProps)(InputFilter);
