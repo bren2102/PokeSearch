@@ -25,11 +25,13 @@ class Pokedex extends React.Component {
   }
 
   render(){
+    const {query} = this.props;
+    const queryToFilter = new RegExp(query, 'g');
     return(
       <React.StrictMode>
         {this.state.pokemon?(
           <div id="container">
-            {this.state.pokemon.map(pokemon => (
+            {this.state.pokemon.filter( p => p.name.match(queryToFilter)).map(pokemon => (
               <Pokemon 
                 name={pokemon.name}
                 key={pokemon.name}
@@ -44,4 +46,8 @@ class Pokedex extends React.Component {
   }
 };
 
-export default withRouter(Pokedex);
+const mapStateToProps = state => ({
+  query: state.queryFilter,
+});
+
+export default connect(mapStateToProps)(Pokedex);

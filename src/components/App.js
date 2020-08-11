@@ -3,6 +3,7 @@ import { BrowserRouter as Router, Route, Switch, Link } from "react-router-dom";
 import Pokedex from "../containers/pokedex";
 import PokeDetails from "../components/pokeDetail"
 import Main from "./main";
+import InputFilter from "./inputFilter"
 
 class App extends React.Component {
 
@@ -13,8 +14,8 @@ class App extends React.Component {
           <header>
             <Link to='/'>
               <h1>Pokedex</h1>
+              <InputFilter />
             </Link>
-            <input id="searchBar" type="text" placeholder="What pokemon are you looking for"></input>
           </header>
           <Switch>
             <Route exact path="/generation/1">
