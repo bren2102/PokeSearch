@@ -24,7 +24,6 @@ class Pokemon extends React.Component {
       imageUrl,
       index: (index.length === 3) ? index : (('0').repeat(3 - index.length) + index),
     });
-    console.log(name)
   }
 
   render() {
@@ -62,6 +61,6 @@ Pokemon.propTypes = {
 Pokemon.defaultProps = {
   name: '',
   url: '',
-}
+};
 
 export default withRouter(Pokemon);

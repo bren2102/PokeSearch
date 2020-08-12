@@ -62,11 +62,11 @@ test('test if pokemon weight is loaded when PokeDetails is rendered', () => {
 });
 
 test('test if pokemon ability is loaded when PokeDetails is rendered', () => {
-  render(<PokeDetails name='bulbasaur' url='https://pokeapi.co/api/v2/' />);
+  render(<PokeDetails name="bulbasaur" url="https://pokeapi.co/api/v2/" />);
   expect(screen.getByTestId('ability')).toBeDefined();
 });
 
 test('test if pokemon captureRate is loaded when PokeDetails is rendered', () => {
-  render(<PokeDetails name='bulbasaur' url='https://pokeapi.co/api/v2/pokemon-species/bulbasaur' />);
+  render(<PokeDetails name="bulbasaur" url="https://pokeapi.co/api/v2/pokemon-species/bulbasaur" />);
   expect(screen.getByTestId('captureRate')).toBeDefined();
 });
