@@ -1,10 +1,10 @@
+import { combineReducers } from 'redux';
 import queryReducer from './queryFilter';
 import boolean from './booleanHome';
-import { combineReducers } from 'redux';
 
 const rootReducer = combineReducers({
   queryFilter: queryReducer,
-  isInHome: boolean
-})
+  isInHome: boolean,
+});
 
 export default rootReducer;

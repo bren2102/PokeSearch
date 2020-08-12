@@ -2,16 +2,16 @@ export const FILTER_POKEMON = 'FILTER_POKEMON';
 export const BOOL_HOME = 'BOOL_HOME';
 export const CLEAN_INPUT = 'CLEAN_INPUT';
 
-export const filterPokemon = (changeQueryFilter) => ({
+export const filterPokemon = changeQueryFilter => ({
   type: FILTER_POKEMON,
-  changeQueryFilter
+  changeQueryFilter,
 });
 
-export const boolHome = (bool) => ({
+export const boolHome = bool => ({
   type: BOOL_HOME,
-  bool
-})
+  bool,
+});
 
 export const cleanInput = () => ({
   type: CLEAN_INPUT,
-})
+});
