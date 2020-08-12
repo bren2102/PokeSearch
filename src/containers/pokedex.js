@@ -25,6 +25,7 @@ class Pokedex extends React.Component {
           pokemon: data.data.results,
         });
       });
+    console.log(url)
   }
 
   render() {

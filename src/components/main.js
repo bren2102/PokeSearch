@@ -18,9 +18,9 @@ class Main extends React.Component {
       <div id="generations">
         <Link to="/generation/1">
           <div id="initialImg">
-            <img src="https://assets.pokemon.com/assets/cms2/img/pokedex/full/001.png" alt="" />
-            <img src="https://assets.pokemon.com/assets/cms2/img/pokedex/full/004.png" alt="" />
-            <img src="https://assets.pokemon.com/assets/cms2/img/pokedex/full/007.png" alt="" />
+            <img src="https://assets.pokemon.com/assets/cms2/img/pokedex/full/001.png" alt="" data-testid="image1" />
+            <img src="https://assets.pokemon.com/assets/cms2/img/pokedex/full/004.png" alt="" data-testid="image2" />
+            <img src="https://assets.pokemon.com/assets/cms2/img/pokedex/full/007.png" alt="" data-testid="image3" />
           </div>
           <p>Generation I</p>
         </Link>
@@ -79,11 +79,7 @@ class Main extends React.Component {
 
 Main.propTypes = {
   setBoolHome: PropTypes.func.isRequired,
-  clearInput: PropTypes.string,
-};
-
-Main.defaultProps = {
-  clearInput: '',
+  clearInput: PropTypes.func.isRequired,
 };
 
 const mapDispatchToProps = dispatch => ({

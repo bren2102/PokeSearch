@@ -106,15 +106,15 @@ class PokeDetails extends React.Component {
     return (
       <div id="pokemon-details">
         <div id="top-name" style={{ backgroundColor: this.bgColor(color) }}>
-          <h2>
+          <h2 data-testid="index">
             #
             {this.state.index}
           </h2>
         </div>
         <div id="details-content">
           <div id="left-side">
-            <img src={pokemonImg} alt="" />
-            <h2 style={{ color: this.bgColor(color) }}>
+            <img src={pokemonImg} alt="" data-testid="img"/>
+            <h2 style={{ color: this.bgColor(color) }} data-testid="name">
               {this.state.name
                 .toLowerCase()
                 .split(' ')
@@ -133,7 +133,7 @@ class PokeDetails extends React.Component {
               <div className="groups">
                 <h4>Height: </h4>
                 <div className="map-groups">
-                  <p>
+                  <p data-testid="height">
                     {this.state.height}
                     {' '}
                     m
@@ -143,7 +143,7 @@ class PokeDetails extends React.Component {
               <div className="groups">
                 <h4>Weight: </h4>
                 <div className="map-groups">
-                  <p>
+                  <p data-testid="weight">
                     {this.state.weight}
                     {' '}
                     kg
@@ -153,11 +153,11 @@ class PokeDetails extends React.Component {
               <div className="groups">
                 <h4>Types: </h4>
                 <div className="map-groups">
-                  {this.state.type.map(type => <p>{type.type.name}</p>)}
+                  {this.state.type.map(type => <p data-testid="type">{type.type.name}</p>)}
                 </div>
               </div>
               <div className="groups">
-                <h4>Abilities: </h4>
+                <h4 data-testid="ability">Abilities: </h4>
                 <div className="map-groups">
                   {this.state.abilities.map(group => <p>{group.ability.name}</p>)}
                 </div>
@@ -168,23 +168,23 @@ class PokeDetails extends React.Component {
               <div className="groups">
                 <h4>Capture rate: </h4>
                 <div className="map-groups">
-                  <p>{this.state.captureRate}</p>
+                  <p data-testid="captureRate">{this.state.captureRate}</p>
                 </div>
               </div>
               <div className="groups">
                 <h4>Base Friendship: </h4>
                 <div className="map-groups">
-                  <p>{this.state.baseHappiness}</p>
+                  <p data-testid="basehapiness">{this.state.baseHappiness}</p>
                 </div>
               </div>
               <div className="groups">
                 <h4>Base Experience: </h4>
                 <div className="map-groups">
-                  <p>{this.state.baseExperience}</p>
+                  <p data-testid="basexperience">{this.state.baseExperience}</p>
                 </div>
               </div>
               <div className="groups">
-                <h4>Growth Rate: </h4>
+                <h4 data-testid="growthrate">Growth Rate: </h4>
                 <div className="map-groups">
                   <p>{this.state.growthRate}</p>
                 </div>
@@ -193,15 +193,15 @@ class PokeDetails extends React.Component {
             <div className="pokedex-section">
               <h4 style={{ color: this.bgColor(color) }}>Breeding</h4>
               <div className="groups">
-                <h4>Egg Groups: </h4>
+                <h4 data-testid="egggroup">Egg Groups: </h4>
                 <div className="map-groups">
-                  {this.state.eggGroups.map(group => <p>{group.name}</p>)}
+                  {this.state.eggGroups.map(group => <p >{group.name}</p>)}
                 </div>
               </div>
               <div className="groups">
-                <h4>Gender Rate: </h4>
+                <h4 data-testid="genderate">Gender Rate: </h4>
                 <div className="map-groups">
-                  <p>{this.state.genderRate}</p>
+                  <p >{this.state.genderRate}</p>
                 </div>
               </div>
             </div>
