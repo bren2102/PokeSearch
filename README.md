@@ -69,6 +69,7 @@ Give a ⭐️ if you like this project!
 
 + UI based on this [Design](https://www.behance.net/gallery/95727849/Pokdex-App).
 + [PokeAPI](https://pokeapi.co/) was used to develop this app.
++ All the images are from this [Github repo](https://pokeapi.co/).
 
 ## License
 
