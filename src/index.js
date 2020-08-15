@@ -1,10 +1,3 @@
-// import { byName, byEncounter, byType } from './pokeapi';
-// let root = document.getElementById("root");
-// let name = document.getElementById("inputName").value;
-// root.innerHTML = `
-//   <button onClick= " ${byName(name)}">
-//     Click
-//   </button>`;
 import React from 'react';
 import ReactDOM from 'react-dom';
 import { Provider } from 'react-redux';
@@ -18,6 +11,22 @@ const store = createStore(rootReducer,
     pokemones: [],
     queryFilter: '',
     isInHome: false,
+    details: {
+      index: '',
+      name: '',
+      type: [],
+      entriesText: [],
+      eggGroups: [],
+      color: [],
+      height: '',
+      weight: '',
+      abilities: [],
+      captureRate: '',
+      baseHappiness: '',
+      baseExperience: '',
+      growthRate: [],
+      genderRate: '',
+    },
   });
 
 ReactDOM.render(

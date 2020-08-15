@@ -3,39 +3,32 @@ import { connect } from 'react-redux';
 import axios from 'axios';
 import PropTypes from 'prop-types';
 import Pokemon from '../components/pokemon';
-import { boolHome } from '../actions/index';
+import { boolHome, updatePokemones } from '../actions/index';
 
 class Pokedex extends React.Component {
   constructor(props) {
     super(props);
     const { setBoolHome } = props;
     setBoolHome(false);
-    this.state = {
-      url: 'https://pokeapi.co/api/v2/',
-      pokemon: '',
-    };
   }
 
   componentDidMount() {
-    const { generation } = this.props;
-    const { url } = this.state;
+    const { generation, updatePokemon } = this.props;
+    const url = 'https://pokeapi.co/api/v2/';
     axios.get(url + generation)
       .then(data => {
-        this.setState({
-          pokemon: data.data.results,
-        });
+        updatePokemon(data.data.results);
       });
   }
 
   render() {
-    const { query } = this.props;
-    const { pokemon } = this.state;
+    const { query, pokemones } = this.props;
     const queryToFilter = new RegExp(query, 'g');
     return (
       <React.StrictMode>
-        {pokemon ? (
+        {(pokemones !== pokemones.length) ? (
           <div id="container">
-            {pokemon.filter(p => p.name.match(queryToFilter)).map(pokemon => (
+            {pokemones.filter(p => p.name.match(queryToFilter)).map(pokemon => (
               <Pokemon
                 name={pokemon.name}
                 key={pokemon.name}
@@ -44,7 +37,7 @@ class Pokedex extends React.Component {
             ))}
           </div>
         ) : (
-          <h1>Loading pokemon</h1>
+          <h2>Loading pokemon</h2>
         )}
       </React.StrictMode>
     );
@@ -55,6 +48,11 @@ Pokedex.propTypes = {
   setBoolHome: PropTypes.func.isRequired,
   generation: PropTypes.string.isRequired,
   query: PropTypes.string,
+  updatePokemon: PropTypes.func.isRequired,
+  pokemones: PropTypes.arrayOf(PropTypes.shape({
+    name: PropTypes.string,
+    url: PropTypes.string,
+  })).isRequired,
 };
 
 Pokedex.defaultProps = {
@@ -63,10 +61,12 @@ Pokedex.defaultProps = {
 
 const mapStateToProps = state => ({
   query: state.queryFilter,
+  pokemones: state.pokemones,
 });
 
 const mapDispatchToProps = dispatch => ({
   setBoolHome: bool => dispatch(boolHome(bool)),
+  updatePokemon: update => dispatch(updatePokemones(update)),
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(Pokedex);

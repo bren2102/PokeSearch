@@ -26,7 +26,7 @@ const App = () => (
           <Pokedex generation="pokemon?limit=100&offset=151" />
         </Route>
         <Route exact path="/generation/3">
-          <Pokedex generation="pokemon?limit=135&offset=251" />
+          <Pokedex generation="pokemon?limit=135&offset=250" />
         </Route>
         <Route exact path="/generation/4">
           <Pokedex generation="pokemon?limit=107&offset=386" />
