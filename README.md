@@ -2,7 +2,7 @@
 
 ## Description
 
-This webapp uses the [PokeAPI](https://pokeapi.co/) to get all the pokemons by generation, also let you filter by pokemon on the searchbar and see the detailed information of the selected one. 
+This web app uses the[PokeAPI](https://pokeapi.co/) to get all the pokemon by generation, also let you filter by pokemon on the search bar, and see the detailed information of the selected one.
 
 ## Built With
 
@@ -57,7 +57,7 @@ Run `npm install` and `npm start` in your terminal/console.
 
 This is an education project as a part of the Microverse so contributing is not accepted.
 
-Contributions, issues and feature requests are welcome!
+Contributions, issues, and feature requests are welcome!
 
 Feel free to check the [issues](https://github.com/bren2102/PokeSearch/issues).
 
