@@ -28,7 +28,7 @@ const store = createStore(rootReducer,
       genderRate: '',
     },
   });
-
+z
 ReactDOM.render(
   <Provider store={store}>
     <App />
